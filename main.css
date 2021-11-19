@@ -13,32 +13,31 @@ body {
   padding: 5px;
   height: 100%;
   display: grid;
-  grid-template-rows: 10% auto 10%;
-  grid-template-columns: 1fr 3fr;
+  grid-template-rows: [hd-start] 10% [hd-end] auto 10%;
+  grid-template-columns: [hd-start] 1fr 3fr [hd-end];
+  row-gap: 5px;
+  column-gap: 5px;
+
+  grid-template-areas:
+    "header header"
+    "aside main"
+    "footer footer";
 }
 
 .header-content {
-  grid-column: 1 / -1;
+  grid-area: header;
 }
 
 .footer-content {
-  grid-row: 3 / -1;
-  grid-column: 1 / -1;
+  grid-area: footer;
 }
 
 .sidebar {
-  margin: auto 0;
-  grid-column: 1 / 2;
-  grid-row: 2 / 3;
-  height: 98%;
+  grid-area: aside;
 }
 
 .maincontent {
-  margin: auto 0 auto auto;
-  grid-column: 2 / 3;
-  grid-row: 2/3;
-  height: 98%;
-  width: 98%;
+  grid-area: main;
 }
 
 .header-content,
